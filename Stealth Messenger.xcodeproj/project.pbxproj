@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA8AC901144C522C00C6979E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC8FF144C522C00C6979E /* Icon.png */; };
+		DA8AC902144C522C00C6979E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC900144C522C00C6979E /* Icon@2x.png */; };
 		DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B05144C1D4100C8D1BB /* UIKit.framework */; };
 		DACC7B08144C1D4100C8D1BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B07144C1D4100C8D1BB /* Foundation.framework */; };
 		DACC7B0A144C1D4100C8D1BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA8AC8FF144C522C00C6979E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		DA8AC900144C522C00C6979E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stealth Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACC7B05144C1D4100C8D1BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DACC7B07144C1D4100C8D1BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA8AC8FE144C522C00C6979E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA8AC8FF144C522C00C6979E /* Icon.png */,
+				DA8AC900144C522C00C6979E /* Icon@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		DACC7AF6144C1D4100C8D1BB = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +93,7 @@
 				DACC7B14144C1D4100C8D1BB /* MessageViewController.h */,
 				DACC7B15144C1D4100C8D1BB /* MessageViewController.m */,
 				DACC7B17144C1D4100C8D1BB /* MessageViewController.xib */,
+				DA8AC8FE144C522C00C6979E /* Resources */,
 				DACC7B0C144C1D4100C8D1BB /* Supporting Files */,
 			);
 			path = "Stealth Messenger";
@@ -146,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACC7B19144C1D4100C8D1BB /* MessageViewController.xib in Resources */,
+				DA8AC901144C522C00C6979E /* Icon.png in Resources */,
+				DA8AC902144C522C00C6979E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +280,7 @@
 				DACC7B1E144C1D4100C8D1BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
