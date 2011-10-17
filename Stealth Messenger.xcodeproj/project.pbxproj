@@ -1,0 +1,271 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B05144C1D4100C8D1BB /* UIKit.framework */; };
+		DACC7B08144C1D4100C8D1BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B07144C1D4100C8D1BB /* Foundation.framework */; };
+		DACC7B0A144C1D4100C8D1BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */; };
+		DACC7B0F144C1D4100C8D1BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DACC7B0E144C1D4100C8D1BB /* main.m */; };
+		DACC7B13144C1D4100C8D1BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DACC7B12144C1D4100C8D1BB /* AppDelegate.m */; };
+		DACC7B16144C1D4100C8D1BB /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DACC7B15144C1D4100C8D1BB /* MessageViewController.m */; };
+		DACC7B19144C1D4100C8D1BB /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DACC7B17144C1D4100C8D1BB /* MessageViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stealth Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DACC7B05144C1D4100C8D1BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DACC7B07144C1D4100C8D1BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DACC7B0D144C1D4100C8D1BB /* Stealth Messenger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Stealth Messenger-Info.plist"; sourceTree = "<group>"; };
+		DACC7B0E144C1D4100C8D1BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DACC7B10144C1D4100C8D1BB /* Stealth Messenger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stealth Messenger-Prefix.pch"; sourceTree = "<group>"; };
+		DACC7B11144C1D4100C8D1BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DACC7B12144C1D4100C8D1BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DACC7B14144C1D4100C8D1BB /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		DACC7B15144C1D4100C8D1BB /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		DACC7B18144C1D4100C8D1BB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MessageViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DACC7AFE144C1D4100C8D1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */,
+				DACC7B08144C1D4100C8D1BB /* Foundation.framework in Frameworks */,
+				DACC7B0A144C1D4100C8D1BB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DACC7AF6144C1D4100C8D1BB = {
+			isa = PBXGroup;
+			children = (
+				DACC7B0B144C1D4100C8D1BB /* Stealth Messenger */,
+				DACC7B04144C1D4100C8D1BB /* Frameworks */,
+				DACC7B02144C1D4100C8D1BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DACC7B02144C1D4100C8D1BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DACC7B04144C1D4100C8D1BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DACC7B05144C1D4100C8D1BB /* UIKit.framework */,
+				DACC7B07144C1D4100C8D1BB /* Foundation.framework */,
+				DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DACC7B0B144C1D4100C8D1BB /* Stealth Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				DACC7B11144C1D4100C8D1BB /* AppDelegate.h */,
+				DACC7B12144C1D4100C8D1BB /* AppDelegate.m */,
+				DACC7B14144C1D4100C8D1BB /* MessageViewController.h */,
+				DACC7B15144C1D4100C8D1BB /* MessageViewController.m */,
+				DACC7B17144C1D4100C8D1BB /* MessageViewController.xib */,
+				DACC7B0C144C1D4100C8D1BB /* Supporting Files */,
+			);
+			path = "Stealth Messenger";
+			sourceTree = "<group>";
+		};
+		DACC7B0C144C1D4100C8D1BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DACC7B0D144C1D4100C8D1BB /* Stealth Messenger-Info.plist */,
+				DACC7B0E144C1D4100C8D1BB /* main.m */,
+				DACC7B10144C1D4100C8D1BB /* Stealth Messenger-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DACC7B00144C1D4100C8D1BB /* Stealth Messenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DACC7B1C144C1D4100C8D1BB /* Build configuration list for PBXNativeTarget "Stealth Messenger" */;
+			buildPhases = (
+				DACC7AFD144C1D4100C8D1BB /* Sources */,
+				DACC7AFE144C1D4100C8D1BB /* Frameworks */,
+				DACC7AFF144C1D4100C8D1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stealth Messenger";
+			productName = "Stealth Messenger";
+			productReference = DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DACC7AF8144C1D4100C8D1BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Cédric Luthi";
+			};
+			buildConfigurationList = DACC7AFB144C1D4100C8D1BB /* Build configuration list for PBXProject "Stealth Messenger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DACC7AF6144C1D4100C8D1BB;
+			productRefGroup = DACC7B02144C1D4100C8D1BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DACC7B00144C1D4100C8D1BB /* Stealth Messenger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DACC7AFF144C1D4100C8D1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACC7B19144C1D4100C8D1BB /* MessageViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DACC7AFD144C1D4100C8D1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DACC7B0F144C1D4100C8D1BB /* main.m in Sources */,
+				DACC7B13144C1D4100C8D1BB /* AppDelegate.m in Sources */,
+				DACC7B16144C1D4100C8D1BB /* MessageViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DACC7B17144C1D4100C8D1BB /* MessageViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DACC7B18144C1D4100C8D1BB /* en */,
+			);
+			name = MessageViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DACC7B1A144C1D4100C8D1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DACC7B1B144C1D4100C8D1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DACC7B1D144C1D4100C8D1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Stealth Messenger/Stealth Messenger-Prefix.pch";
+				INFOPLIST_FILE = "Stealth Messenger/Stealth Messenger-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DACC7B1E144C1D4100C8D1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Stealth Messenger/Stealth Messenger-Prefix.pch";
+				INFOPLIST_FILE = "Stealth Messenger/Stealth Messenger-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DACC7AFB144C1D4100C8D1BB /* Build configuration list for PBXProject "Stealth Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DACC7B1A144C1D4100C8D1BB /* Debug */,
+				DACC7B1B144C1D4100C8D1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DACC7B1C144C1D4100C8D1BB /* Build configuration list for PBXNativeTarget "Stealth Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DACC7B1D144C1D4100C8D1BB /* Debug */,
+				DACC7B1E144C1D4100C8D1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DACC7AF8144C1D4100C8D1BB /* Project object */;
+}
