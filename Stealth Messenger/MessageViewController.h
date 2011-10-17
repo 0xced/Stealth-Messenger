@@ -8,9 +8,11 @@
 
 @interface MessageViewController : UIViewController <UITextFieldDelegate>
 
-@property (nonatomic, assign) IBOutlet UITextView *textView;
+@property (nonatomic, assign) IBOutlet UISegmentedControl *messageSegmentedControl;
 @property (nonatomic, assign) IBOutlet UILabel *recipientLabel;
 @property (nonatomic, assign) IBOutlet UITextField *recipientField;
+@property (nonatomic, assign) IBOutlet UIButton *sendButton;
+@property (nonatomic, assign) IBOutlet UITextView *textView;
 
 - (IBAction) changeMessageKind:(id)sender;
 - (IBAction) sendMessage:(id)sender;

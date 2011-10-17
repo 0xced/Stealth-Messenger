@@ -52,8 +52,8 @@
 						<int key="IBNumberOfSegments">3</int>
 						<int key="IBSelectedSegmentIndex">0</int>
 						<array key="IBSegmentTitles">
-							<string>SMS</string>
 							<string>Email</string>
+							<string>SMS</string>
 							<string>Tweet</string>
 						</array>
 						<array class="NSMutableArray" key="IBSegmentWidths">
@@ -80,7 +80,7 @@
 					<object class="IBUILabel" id="58955090">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{16, 77}, {76, 21}}</string>
+						<string key="NSFrame">{{16, 77}, {82, 21}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="586135235"/>
@@ -89,7 +89,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Recipient</string>
+						<string key="IBUIText">Recipients</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -110,7 +110,7 @@
 					<object class="IBUITextField" id="586135235">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{101, 72}, {203, 31}}</string>
+						<string key="NSFrame">{{110, 72}, {194, 31}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="359364396"/>
@@ -139,7 +139,7 @@
 					<object class="IBUIButton" id="359364396">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{110, 113}, {100, 37}}</string>
+						<string key="NSFrame">{{85, 113}, {150, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="56030793"/>
@@ -242,6 +242,14 @@
 						<reference key="destination" ref="58955090"/>
 					</object>
 					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">messageSegmentedControl</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="549077639"/>
+					</object>
+					<int key="connectionID">21</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -352,7 +360,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">20</int>
+			<int key="maxID">21</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -374,11 +382,17 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="messageSegmentedControl">UISegmentedControl</string>
 						<string key="recipientField">UITextField</string>
 						<string key="recipientLabel">UILabel</string>
+						<string key="sendButton">UIButton</string>
 						<string key="textView">UITextView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="messageSegmentedControl">
+							<string key="name">messageSegmentedControl</string>
+							<string key="candidateClassName">UISegmentedControl</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="recipientField">
 							<string key="name">recipientField</string>
 							<string key="candidateClassName">UITextField</string>
@@ -386,6 +400,10 @@
 						<object class="IBToOneOutletInfo" key="recipientLabel">
 							<string key="name">recipientLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sendButton">
+							<string key="name">sendButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="textView">
 							<string key="name">textView</string>

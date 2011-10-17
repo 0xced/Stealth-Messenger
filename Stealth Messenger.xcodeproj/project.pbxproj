@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA124A7A144C54620034188F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA124A79144C54620034188F /* MessageUI.framework */; };
+		DA124A82144C54D20034188F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA124A81144C54D20034188F /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DA124A85144C5A620034188F /* StealthSender.m in Sources */ = {isa = PBXBuildFile; fileRef = DA124A84144C5A620034188F /* StealthSender.m */; };
 		DA8AC901144C522C00C6979E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC8FF144C522C00C6979E /* Icon.png */; };
 		DA8AC902144C522C00C6979E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC900144C522C00C6979E /* Icon@2x.png */; };
 		DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B05144C1D4100C8D1BB /* UIKit.framework */; };
@@ -19,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA124A79144C54620034188F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		DA124A81144C54D20034188F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		DA124A83144C5A620034188F /* StealthSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StealthSender.h; sourceTree = "<group>"; };
+		DA124A84144C5A620034188F /* StealthSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StealthSender.m; sourceTree = "<group>"; };
 		DA8AC8FF144C522C00C6979E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DA8AC900144C522C00C6979E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stealth Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +50,8 @@
 				DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */,
 				DACC7B08144C1D4100C8D1BB /* Foundation.framework in Frameworks */,
 				DACC7B0A144C1D4100C8D1BB /* CoreGraphics.framework in Frameworks */,
+				DA124A7A144C54620034188F /* MessageUI.framework in Frameworks */,
+				DA124A82144C54D20034188F /* Twitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,8 @@
 				DACC7B05144C1D4100C8D1BB /* UIKit.framework */,
 				DACC7B07144C1D4100C8D1BB /* Foundation.framework */,
 				DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */,
+				DA124A79144C54620034188F /* MessageUI.framework */,
+				DA124A81144C54D20034188F /* Twitter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,6 +103,8 @@
 				DACC7B12144C1D4100C8D1BB /* AppDelegate.m */,
 				DACC7B14144C1D4100C8D1BB /* MessageViewController.h */,
 				DACC7B15144C1D4100C8D1BB /* MessageViewController.m */,
+				DA124A83144C5A620034188F /* StealthSender.h */,
+				DA124A84144C5A620034188F /* StealthSender.m */,
 				DACC7B17144C1D4100C8D1BB /* MessageViewController.xib */,
 				DA8AC8FE144C522C00C6979E /* Resources */,
 				DACC7B0C144C1D4100C8D1BB /* Supporting Files */,
@@ -175,6 +188,7 @@
 				DACC7B0F144C1D4100C8D1BB /* main.m in Sources */,
 				DACC7B13144C1D4100C8D1BB /* AppDelegate.m in Sources */,
 				DACC7B16144C1D4100C8D1BB /* MessageViewController.m in Sources */,
+				DA124A85144C5A620034188F /* StealthSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
