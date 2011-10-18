@@ -31,6 +31,9 @@
 	self.recipientLabel.hidden = isTweet;
 	self.recipientField.hidden = isTweet;
 	
+	NSString *title = [[self.messageSegmentedControl titleForSegmentAtIndex:self.messageSegmentedControl.selectedSegmentIndex] lowercaseString];
+	self.textView.text = [NSString stringWithFormat:@"This %@ was sent with Stealth Messenger - https://github.com/0xced/StealthMessenger", title];
+	
 	switch (self.messageSegmentedControl.selectedSegmentIndex)
 	{
 		case 0: // Email
@@ -73,7 +76,7 @@
 		{
 			MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
 			[mailComposeViewController setToRecipients:[NSArray arrayWithObject:self.recipientField.text]];
-			[mailComposeViewController setSubject:@""];
+			[mailComposeViewController setSubject:@"Stealth email"];
 			[mailComposeViewController setMessageBody:self.textView.text isHTML:NO];
 			composeViewController = mailComposeViewController;
 			break;
@@ -101,7 +104,9 @@
 	}
 	
 	StealthSender *stealthSender = [[StealthSender alloc] initWithComposeViewController:composeViewController];
-	[stealthSender sendWithCompletionHandler:NULL];
+	[stealthSender sendWithCompletionHandler:^(BOOL success) {
+		NSLog(@"%@ message sent? %@", [composeViewController class], success ? @"YES" : @"NO");
+	}];
 }
 
 // MARK: - UITextField delegate
