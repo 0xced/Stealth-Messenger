@@ -66,10 +66,12 @@
 
 - (void) executeCompletionHandler:(BOOL)success
 {
-	if (self.completionHandler)
-		self.completionHandler(success);
-	
-	((void(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"release"));
+	dispatch_async(dispatch_get_main_queue(), ^{
+		if (self.completionHandler)
+			self.completionHandler(success);
+		
+		((void(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"release"));
+	});
 }
 
 // MARK: - Email
@@ -132,6 +134,7 @@
 	messageComposeViewController.messageComposeDelegate = self;
 	
 	NSLog(@"TODO: send message");
+	[self executeCompletionHandler:NO];
 }
 
 - (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -144,6 +147,7 @@
 - (void) sendTweet
 {
 	NSLog(@"TODO: send tweet");
+	[self executeCompletionHandler:NO];
 }
 
 @end
