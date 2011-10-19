@@ -134,8 +134,26 @@
 	MFMessageComposeViewController *messageComposeViewController = (MFMessageComposeViewController*)self.composeViewController;
 	messageComposeViewController.messageComposeDelegate = self;
 	
-	NSLog(@"TODO: send message");
-	[self executeCompletionHandler:NO];
+	[messageComposeViewController viewWillAppear:NO];
+	[messageComposeViewController view];
+	[messageComposeViewController viewDidAppear:NO];
+	UIViewController *topViewController = [messageComposeViewController topViewController];
+	@try
+	{
+		// topViewController is a CKSMSComposeController : CKTranscriptController
+		[topViewController viewWillAppear:NO];
+		[topViewController view];
+		[topViewController viewDidAppear:NO];
+		id entryView = [topViewController valueForKey:@"entryView"];
+		if ([entryView respondsToSelector:@selector(send:)])
+			[entryView performSelector:@selector(send:) withObject:nil];
+		else
+			[self executeCompletionHandler:NO];
+	}
+	@catch (NSException *exception)
+	{
+		[self executeCompletionHandler:NO];
+	}
 }
 
 - (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
