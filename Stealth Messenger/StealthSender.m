@@ -8,7 +8,6 @@
 
 #import "StealthSender.h"
 
-#import <objc/message.h>
 #import <MessageUI/MessageUI.h>
 #import <Twitter/Twitter.h>
 
@@ -19,6 +18,7 @@
 @property (nonatomic, assign) BOOL isTweetViewController;
 @property (nonatomic, strong) UIViewController *composeViewController;
 @property (nonatomic, copy) ComposeViewControllerCompletionHandler completionHandler;
+@property (nonatomic, strong) id myself;
 
 - (void) sendMail;
 - (void) sendMessage;
@@ -33,6 +33,7 @@
 @synthesize isTweetViewController = _isTweetViewController;
 @synthesize composeViewController = _composeViewController;
 @synthesize completionHandler = _completionHandler;
+@synthesize myself = _myself;
 
 - (id) initWithComposeViewController:(UIViewController *)composeViewController
 {
@@ -52,7 +53,7 @@
 
 - (void) sendWithCompletionHandler:(ComposeViewControllerCompletionHandler)completionHandler
 {
-	((id(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"retain"));
+	self.myself = self;
 
 	self.completionHandler = completionHandler;
 	
@@ -70,7 +71,7 @@
 		if (self.completionHandler)
 			self.completionHandler(success);
 		
-		((void(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"release"));
+		self.myself = nil;
 	});
 }
 
