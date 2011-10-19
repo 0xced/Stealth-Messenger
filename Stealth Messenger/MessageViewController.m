@@ -8,7 +8,57 @@
 
 #import "MessageViewController.h"
 
+#import "ABGetMe.h"
 #import "StealthSender.h"
+
+NSString *myEmail(void)
+{
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	ABRecordRef me = ABGetMe(addressBook);
+	NSString *email = nil;
+	if (me)
+	{
+		ABMultiValueRef emails = ABRecordCopyValue(me, kABPersonEmailProperty);
+		if (emails)
+		{
+			CFIndex emailCount = ABMultiValueGetCount(emails);
+			if (emailCount > 0)
+				email =  CFBridgingRelease(ABMultiValueCopyValueAtIndex(emails, 0));
+			
+			CFRelease(emails);
+		}
+	}
+	CFRelease(addressBook);
+	
+	return email;
+}
+
+NSString *myMobilePhoneNumber(void)
+{
+	ABAddressBookRef addressBook = ABAddressBookCreate();
+	ABRecordRef me = ABGetMe(addressBook);
+	NSString *mobilePhoneNumber = nil;
+	if (me)
+	{
+		ABMultiValueRef phones = ABRecordCopyValue(me, kABPersonPhoneProperty);
+		if (phones)
+		{
+			for (CFIndex i = 0; i < ABMultiValueGetCount(phones); i++)
+			{
+				NSString *label = CFBridgingRelease(ABMultiValueCopyLabelAtIndex(phones, i));
+				if ([label isEqualToString:(id)kABPersonPhoneIPhoneLabel] || [label isEqualToString:(id)kABPersonPhoneMobileLabel])
+				{
+					mobilePhoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phones, i));
+					break;
+				}
+			}
+			CFRelease(phones);
+		}
+	}
+	CFRelease(addressBook);
+	
+	return mobilePhoneNumber;
+}
 
 @implementation MessageViewController
 
@@ -37,10 +87,12 @@
 	switch (self.messageSegmentedControl.selectedSegmentIndex)
 	{
 		case 0: // Email
+			self.recipientField.text = myEmail();
 			self.sendButton.enabled = [MFMailComposeViewController canSendMail];
 			break;
 		
 		case 1: // SMS
+			self.recipientField.text = myMobilePhoneNumber();
 			self.sendButton.enabled = [MFMessageComposeViewController canSendText];
 			break;
 		

@@ -10,6 +10,8 @@
 		DA124A7A144C54620034188F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA124A79144C54620034188F /* MessageUI.framework */; };
 		DA124A82144C54D20034188F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA124A81144C54D20034188F /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DA124A85144C5A620034188F /* StealthSender.m in Sources */ = {isa = PBXBuildFile; fileRef = DA124A84144C5A620034188F /* StealthSender.m */; };
+		DA2CCDE0144D638B006D8D9C /* ABGetMe.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2CCDDF144D638B006D8D9C /* ABGetMe.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DA2CCDE3144D6445006D8D9C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA2CCDE2144D6445006D8D9C /* AddressBook.framework */; };
 		DA8AC901144C522C00C6979E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC8FF144C522C00C6979E /* Icon.png */; };
 		DA8AC902144C522C00C6979E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8AC900144C522C00C6979E /* Icon@2x.png */; };
 		DACC7B06144C1D4100C8D1BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACC7B05144C1D4100C8D1BB /* UIKit.framework */; };
@@ -26,6 +28,9 @@
 		DA124A81144C54D20034188F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		DA124A83144C5A620034188F /* StealthSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StealthSender.h; sourceTree = "<group>"; };
 		DA124A84144C5A620034188F /* StealthSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StealthSender.m; sourceTree = "<group>"; };
+		DA2CCDDE144D638B006D8D9C /* ABGetMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABGetMe.h; sourceTree = "<group>"; };
+		DA2CCDDF144D638B006D8D9C /* ABGetMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABGetMe.m; sourceTree = "<group>"; };
+		DA2CCDE2144D6445006D8D9C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		DA8AC8FF144C522C00C6979E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DA8AC900144C522C00C6979E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		DACC7B01144C1D4100C8D1BB /* Stealth Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stealth Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,12 +57,22 @@
 				DACC7B0A144C1D4100C8D1BB /* CoreGraphics.framework in Frameworks */,
 				DA124A7A144C54620034188F /* MessageUI.framework in Frameworks */,
 				DA124A82144C54D20034188F /* Twitter.framework in Frameworks */,
+				DA2CCDE3144D6445006D8D9C /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA2CCDDD144D638B006D8D9C /* ABGetMe */ = {
+			isa = PBXGroup;
+			children = (
+				DA2CCDDE144D638B006D8D9C /* ABGetMe.h */,
+				DA2CCDDF144D638B006D8D9C /* ABGetMe.m */,
+			);
+			path = ABGetMe;
+			sourceTree = "<group>";
+		};
 		DA8AC8FE144C522C00C6979E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +85,7 @@
 		DACC7AF6144C1D4100C8D1BB = {
 			isa = PBXGroup;
 			children = (
+				DA2CCDDD144D638B006D8D9C /* ABGetMe */,
 				DACC7B0B144C1D4100C8D1BB /* Stealth Messenger */,
 				DACC7B04144C1D4100C8D1BB /* Frameworks */,
 				DACC7B02144C1D4100C8D1BB /* Products */,
@@ -87,11 +103,12 @@
 		DACC7B04144C1D4100C8D1BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DACC7B05144C1D4100C8D1BB /* UIKit.framework */,
-				DACC7B07144C1D4100C8D1BB /* Foundation.framework */,
+				DA2CCDE2144D6445006D8D9C /* AddressBook.framework */,
 				DACC7B09144C1D4100C8D1BB /* CoreGraphics.framework */,
+				DACC7B07144C1D4100C8D1BB /* Foundation.framework */,
 				DA124A79144C54620034188F /* MessageUI.framework */,
 				DA124A81144C54D20034188F /* Twitter.framework */,
+				DACC7B05144C1D4100C8D1BB /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +206,7 @@
 				DACC7B13144C1D4100C8D1BB /* AppDelegate.m in Sources */,
 				DACC7B16144C1D4100C8D1BB /* MessageViewController.m in Sources */,
 				DA124A85144C5A620034188F /* StealthSender.m in Sources */,
+				DA2CCDE0144D638B006D8D9C /* ABGetMe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +242,6 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -243,7 +260,6 @@
 				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
