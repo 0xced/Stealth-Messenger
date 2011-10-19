@@ -66,6 +66,7 @@ NSString *myMobilePhoneNumber(void)
 @synthesize recipientLabel = _recipientLabel;
 @synthesize recipientField = _recipientField;
 @synthesize sendButton = _sendButton;
+@synthesize statusLabel = _statusLabel;
 @synthesize textView = _textView;
 
 - (void) viewDidLoad
@@ -80,6 +81,8 @@ NSString *myMobilePhoneNumber(void)
 	BOOL isTweet = self.messageSegmentedControl.selectedSegmentIndex == 2;
 	self.recipientLabel.hidden = isTweet;
 	self.recipientField.hidden = isTweet;
+	
+	self.statusLabel.text = nil;
 	
 	NSString *title = [[self.messageSegmentedControl titleForSegmentAtIndex:self.messageSegmentedControl.selectedSegmentIndex] lowercaseString];
 	self.textView.text = [NSString stringWithFormat:@"This %@ was sent with Stealth Messenger - https://github.com/0xced/StealthMessenger", title];
@@ -155,9 +158,11 @@ NSString *myMobilePhoneNumber(void)
 			break;
 	}
 	
+	self.statusLabel.text = @"\u2026";
+	
 	StealthSender *stealthSender = [[StealthSender alloc] initWithComposeViewController:composeViewController];
 	[stealthSender sendWithCompletionHandler:^(BOOL success) {
-		NSLog(@"%@ message sent? %@", [composeViewController class], success ? @"YES" : @"NO");
+		self.statusLabel.text = success ? @"\u2714" : @"\u2718";
 	}];
 }
 
