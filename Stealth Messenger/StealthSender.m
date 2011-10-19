@@ -8,18 +8,21 @@
 
 #import "StealthSender.h"
 
+#import <objc/message.h>
 #import <MessageUI/MessageUI.h>
 #import <Twitter/Twitter.h>
 
-@interface StealthSender ()
+@interface StealthSender () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, assign) BOOL isMailViewController;
 @property (nonatomic, assign) BOOL isMessageViewController;
 @property (nonatomic, assign) BOOL isTweetViewController;
+@property (nonatomic, strong) UIViewController *composeViewController;
+@property (nonatomic, copy) ComposeViewControllerCompletionHandler completionHandler;
 
-- (void) sendMail:(void (^)(BOOL success))completionHandler;
-- (void) sendMessage:(void (^)(BOOL success))completionHandler;
-- (void) sendTweet:(void (^)(BOOL success))completionHandler;
+- (void) sendMail;
+- (void) sendMessage;
+- (void) sendTweet;
 
 @end
 
@@ -28,6 +31,8 @@
 @synthesize isMailViewController = _isMailViewController;
 @synthesize isMessageViewController = _isMessageViewController;
 @synthesize isTweetViewController = _isTweetViewController;
+@synthesize composeViewController = _composeViewController;
+@synthesize completionHandler = _completionHandler;
 
 - (id) initWithComposeViewController:(UIViewController *)composeViewController
 {
@@ -37,6 +42,7 @@
 	self.isMailViewController = [composeViewController isKindOfClass:[MFMailComposeViewController class]];
 	self.isMessageViewController = [composeViewController isKindOfClass:[MFMessageComposeViewController class]];
 	self.isTweetViewController = [composeViewController isKindOfClass:[TWTweetComposeViewController class]];
+	self.composeViewController = composeViewController;
 	
 	if (!(self.isMailViewController || self.isMessageViewController || self.isTweetViewController))
 		@throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"The composeViewController argument must be an instance of MFMailComposeViewController, MFMessageComposeViewController or TWTweetComposeViewController." userInfo:nil];
@@ -44,27 +50,98 @@
 	return self;
 }
 
-- (void) sendWithCompletionHandler:(void (^)(BOOL success))completionHandler
+- (void) sendWithCompletionHandler:(ComposeViewControllerCompletionHandler)completionHandler
 {
+	((id(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"retain"));
+
+	self.completionHandler = completionHandler;
+	
 	if (self.isMailViewController)
-		[self sendMail:completionHandler];
+		[self sendMail];
 	else if (self.isMessageViewController)
-		[self sendMessage:completionHandler];
+		[self sendMessage];
 	else if (self.isTweetViewController)
-		[self sendTweet:completionHandler];
+		[self sendTweet];
 }
 
-- (void) sendMail:(void (^)(BOOL success))completionHandler
+- (void) executeCompletionHandler:(BOOL)success
 {
-	NSLog(@"TODO: send mail");
+	if (self.completionHandler)
+		self.completionHandler(success);
+	
+	((void(*)(id, SEL))objc_msgSend)(self, NSSelectorFromString(@"release"));
 }
 
-- (void) sendMessage:(void (^)(BOOL success))completionHandler
+// MARK: - Email
+
+- (void) sendMail
 {
+	MFMailComposeViewController *mailComposeViewController = (MFMailComposeViewController*)self.composeViewController;
+	mailComposeViewController.mailComposeDelegate = self;
+	
+	[mailComposeViewController viewWillAppear:NO];
+	[mailComposeViewController view];
+	[mailComposeViewController viewDidAppear:NO];
+	
+	[self performSelector:@selector(failMail) withObject:nil afterDelay:3.0];
+}
+
+- (void) failMail
+{
+	[self executeCompletionHandler:NO];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController*)mailComposeViewController bodyFinishedLoadingWithResult:(NSInteger)result error:(NSError*)error
+{
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(failMail) object:nil];
+	
+	@try
+	{
+		Class MFMailComposeController = NSClassFromString(@"MFMailComposeController");
+		id mailComposeController = [mailComposeViewController valueForKeyPath:@"internal"];
+		if (![mailComposeController isKindOfClass:MFMailComposeController])
+			mailComposeController = [mailComposeController valueForKey:@"mailComposeController"]; // iOS < 5: internal isa MFMailComposeRootViewController
+		
+		id sendButtonItem = nil;
+		@try
+		{
+			sendButtonItem = [mailComposeController valueForKey:@"sendButtonItem"];
+		}
+		@catch (NSException *exception)
+		{
+			sendButtonItem = [mailComposeViewController valueForKeyPath:@"internal.mailComposeView.sendButtonItem"];
+		}
+		[mailComposeController performSelector:@selector(send:) withObject:sendButtonItem];
+	}
+	@catch (NSException *exception)
+	{
+		[self failMail];
+	}
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+	[self executeCompletionHandler:result == MFMailComposeResultSent];
+}
+
+// MARK: - SMS
+
+- (void) sendMessage
+{
+	MFMessageComposeViewController *messageComposeViewController = (MFMessageComposeViewController*)self.composeViewController;
+	messageComposeViewController.messageComposeDelegate = self;
+	
 	NSLog(@"TODO: send message");
 }
 
-- (void) sendTweet:(void (^)(BOOL success))completionHandler
+- (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	[self executeCompletionHandler:result == MessageComposeResultSent];
+}
+
+// MARK: - Tweet
+
+- (void) sendTweet
 {
 	NSLog(@"TODO: send tweet");
 }

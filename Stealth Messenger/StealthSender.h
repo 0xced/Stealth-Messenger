@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ComposeViewControllerCompletionHandler)(BOOL success); 
+
 @interface StealthSender : NSObject
 
 - (id) initWithComposeViewController:(UIViewController *)composeViewController;
 
-- (void) sendWithCompletionHandler:(void (^)(BOOL success))completionHandler;
+- (void) sendWithCompletionHandler:(ComposeViewControllerCompletionHandler)completionHandler;
 
 @end
