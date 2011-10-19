@@ -60,6 +60,15 @@ NSString *myMobilePhoneNumber(void)
 	return mobilePhoneNumber;
 }
 
+NSString *myTwitterName(void)
+{
+	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+	ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+	[accountStore requestAccessToAccountsWithType:twitterAccountType withCompletionHandler:^(BOOL granted, NSError *error) {}];
+	ACAccount *twitterAccount = [[accountStore accountsWithAccountType:twitterAccountType] lastObject];
+	return twitterAccount.username ? [@"D " stringByAppendingString:twitterAccount.username] : nil;
+}
+
 @implementation MessageViewController
 
 @synthesize messageSegmentedControl = _messageSegmentedControl;
@@ -78,10 +87,6 @@ NSString *myMobilePhoneNumber(void)
 
 - (void) updateView
 {
-	BOOL isTweet = self.messageSegmentedControl.selectedSegmentIndex == 2;
-	self.recipientLabel.hidden = isTweet;
-	self.recipientField.hidden = isTweet;
-	
 	self.statusLabel.text = nil;
 	
 	NSString *title = [[self.messageSegmentedControl titleForSegmentAtIndex:self.messageSegmentedControl.selectedSegmentIndex] lowercaseString];
@@ -100,6 +105,7 @@ NSString *myMobilePhoneNumber(void)
 			break;
 		
 		case 2: // Twitter
+			self.recipientField.text = myTwitterName();
 			self.sendButton.enabled = [TWTweetComposeViewController canSendTweet];
 			break;
 		
