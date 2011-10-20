@@ -66,7 +66,7 @@ NSString *myTwitterName(void)
 	ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 	[accountStore requestAccessToAccountsWithType:twitterAccountType withCompletionHandler:^(BOOL granted, NSError *error) {}];
 	ACAccount *twitterAccount = [[accountStore accountsWithAccountType:twitterAccountType] lastObject];
-	return twitterAccount.username ? [@"D " stringByAppendingString:twitterAccount.username] : nil;
+	return twitterAccount.username;
 }
 
 @implementation MessageViewController
@@ -155,7 +155,7 @@ NSString *myTwitterName(void)
 		case 2: // Tweet
 		{
 			TWTweetComposeViewController *tweetComposeViewController = [[TWTweetComposeViewController alloc] init];
-			[tweetComposeViewController setInitialText:self.textView.text];
+			[tweetComposeViewController setInitialText:self.recipientField.text.length > 0 ? [NSString stringWithFormat:@"D %@ %@", self.recipientField.text, self.textView.text] : self.textView.text];
 			composeViewController = tweetComposeViewController;
 			break;
 		}

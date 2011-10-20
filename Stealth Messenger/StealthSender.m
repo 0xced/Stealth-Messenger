@@ -165,8 +165,24 @@
 
 - (void) sendTweet
 {
-	NSLog(@"TODO: send tweet");
-	[self executeCompletionHandler:NO];
+	TWTweetComposeViewController *tweetComposeViewController = (TWTweetComposeViewController *)self.composeViewController;
+	tweetComposeViewController.completionHandler = ^(TWTweetComposeViewControllerResult result){
+		[self executeCompletionHandler:result == TWTweetComposeViewControllerResultDone];
+	};
+	
+	@try
+	{
+		[tweetComposeViewController view];
+		
+		if ([tweetComposeViewController respondsToSelector:@selector(send:)])
+			[tweetComposeViewController performSelector:@selector(send:) withObject:nil];
+		else
+			[self executeCompletionHandler:NO];
+	}
+	@catch (NSException *exception)
+	{
+		[self executeCompletionHandler:NO];
+	}
 }
 
 @end
