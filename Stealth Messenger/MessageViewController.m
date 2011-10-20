@@ -97,7 +97,7 @@ NSString *myTwitterName(void)
 	self.statusLabel.text = nil;
 	
 	NSString *title = [[self.messageSegmentedControl titleForSegmentAtIndex:self.messageSegmentedControl.selectedSegmentIndex] lowercaseString];
-	self.textView.text = [NSString stringWithFormat:@"This %@ was sent with Stealth Messenger - https://github.com/0xced/StealthMessenger", title];
+	self.textView.text = [NSString stringWithFormat:@"This %@ was sent with Stealth Messenger - https://github.com/0xced/Stealth-Messenger", title];
 	
 	switch (self.messageSegmentedControl.selectedSegmentIndex)
 	{
