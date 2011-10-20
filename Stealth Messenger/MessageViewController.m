@@ -23,7 +23,7 @@ NSString *myEmail(void)
 		{
 			CFIndex emailCount = ABMultiValueGetCount(emails);
 			if (emailCount > 0)
-				email =  CFBridgingRelease(ABMultiValueCopyValueAtIndex(emails, 0));
+				email = CFBridgingRelease(ABMultiValueCopyValueAtIndex(emails, 0));
 			
 			CFRelease(emails);
 		}
@@ -63,6 +63,9 @@ NSString *myMobilePhoneNumber(void)
 NSString *myTwitterName(void)
 {
 #if 0
+	if (![ACAccountStore class])
+		return nil;
+	
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
 	ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 	[accountStore requestAccessToAccountsWithType:twitterAccountType withCompletionHandler:^(BOOL granted, NSError *error) {}];
