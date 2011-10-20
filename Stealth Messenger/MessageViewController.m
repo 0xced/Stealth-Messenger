@@ -62,11 +62,15 @@ NSString *myMobilePhoneNumber(void)
 
 NSString *myTwitterName(void)
 {
+#if 0
 	ACAccountStore *accountStore = [[ACAccountStore alloc] init];
 	ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 	[accountStore requestAccessToAccountsWithType:twitterAccountType withCompletionHandler:^(BOOL granted, NSError *error) {}];
 	ACAccount *twitterAccount = [[accountStore accountsWithAccountType:twitterAccountType] lastObject];
 	return twitterAccount.username;
+#else
+	return nil;
+#endif
 }
 
 @implementation MessageViewController
