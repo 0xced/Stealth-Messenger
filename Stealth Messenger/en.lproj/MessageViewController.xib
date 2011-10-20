@@ -133,6 +133,7 @@
 							<int key="IBUIReturnKeyType">7</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
+						<int key="IBUIClearButtonMode">1</int>
 						<reference key="IBUIFontDescription" ref="635620457"/>
 						<reference key="IBUIFont" ref="28150223"/>
 					</object>
