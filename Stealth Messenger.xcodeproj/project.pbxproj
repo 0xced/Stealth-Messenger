@@ -73,7 +73,8 @@
 				DA2CCDDE144D638B006D8D9C /* ABGetMe.h */,
 				DA2CCDDF144D638B006D8D9C /* ABGetMe.m */,
 			);
-			path = ABGetMe;
+			name = ABGetMe;
+			path = ABGetMe/ABGetMe;
 			sourceTree = "<group>";
 		};
 		DA8AC8FE144C522C00C6979E /* Resources */ = {
